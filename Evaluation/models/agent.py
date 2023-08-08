@@ -21,7 +21,6 @@ class AgentA2C(ptan.agent.BaseAgent):
 
 	def __call__(self, states, agent_states = None):
 		states_v = ptan.agent.float32_preprocessor(states).to(self.device)
-		#states_v = states_v.squeeze(dim = 0)
 		if len(states_v.shape) == 2:
 			states_v = states_v.unsqueeze(dim = 0)
 		#Computing the mean of the action value given the input states
@@ -42,13 +41,8 @@ class AgentA2C(ptan.agent.BaseAgent):
         For the second element, we are currently directy using the predicted mean value, but ideally we should sample from a bernoulli distribution.
         '''
 
-		# actions = np.zeros_like(np.array([mu]))
 		actions = mu + np.exp(logstd) * np.random.normal(size=logstd.shape)
 		actions = np.clip(actions, -1, 1)
-		# actions[:,:,1] = mu[:,1]
-		
-		# if len(actions.shape) == 1:
-		# 	actions = actions[None,:]
 
 		return actions, states_v
 
