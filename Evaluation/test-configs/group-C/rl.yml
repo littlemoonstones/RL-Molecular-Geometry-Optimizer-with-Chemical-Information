@@ -1,0 +1,9 @@
+file_name: test_dict.pk
+coord_type: redund
+calculator:
+  key: mmff
+optimizer: 
+  key: rl
+  name: many510
+  version: "3"
+  seed: "283484033"

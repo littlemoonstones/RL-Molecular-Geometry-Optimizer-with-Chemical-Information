@@ -1,0 +1,9 @@
+file_name: test_dict.pk
+coord_type: redund
+calculator:
+  key: mmff
+optimizer: 
+  key: rl
+  name: schnet1
+  version: "11"
+  seed: "531875028"
