@@ -43,7 +43,9 @@ In `configs`
 | `schnet1/v11.ini` | It corresponds to `Group D`. |
 
 ## Evaluation
-In `test-configs`, you can determine the dataset, the type of coordinates(e.g. cartesian(`cart`) or internal(`redund`) coordinates), the type of calculator(e.g. `mmff` or `psi4`) and the type of optimizer(e.g. `bfgs` or `rl`).
+- `test-configs`: you can determine the dataset, the type of coordinates(e.g. cartesian(`cart`) or internal(`redund`) coordinates), the type of calculator(e.g. `mmff` or `psi4`) and the type of optimizer(e.g. `bfgs` or `rl`).
+- `worker.py`: This file is to collect the data(`.json`) which the optimizer optimize the molecular geometry.
+- `compare.py`: This file is to compare the performance of different optimizers after collecting the data.
 
 
 # Usage
