@@ -1,0 +1,88 @@
+{
+    "smile": "CCC(=O)CC1CC1",
+    "index": 13,
+    "N_atoms": 20,
+    "coord_type": "cart",
+    "results": [
+        {
+            "steps": 26,
+            "error": false,
+            "rebuild": 0,
+            "time_avg": 0.03043508529663086,
+            "time_std": 0.0,
+            "isConverged": true
+        },
+        {
+            "steps": 23,
+            "error": false,
+            "rebuild": 0,
+            "time_avg": 0.026854753494262695,
+            "time_std": 0.0,
+            "isConverged": true
+        },
+        {
+            "steps": 29,
+            "error": false,
+            "rebuild": 0,
+            "time_avg": 0.03331255912780762,
+            "time_std": 0.0,
+            "isConverged": true
+        },
+        {
+            "steps": 25,
+            "error": false,
+            "rebuild": 0,
+            "time_avg": 0.02852797508239746,
+            "time_std": 0.0,
+            "isConverged": true
+        },
+        {
+            "steps": 32,
+            "error": false,
+            "rebuild": 0,
+            "time_avg": 0.03636312484741211,
+            "time_std": 0.0,
+            "isConverged": true
+        },
+        {
+            "steps": 28,
+            "error": false,
+            "rebuild": 0,
+            "time_avg": 0.031793832778930664,
+            "time_std": 0.0,
+            "isConverged": true
+        },
+        {
+            "steps": 25,
+            "error": false,
+            "rebuild": 0,
+            "time_avg": 0.029065370559692383,
+            "time_std": 0.0,
+            "isConverged": true
+        },
+        {
+            "steps": 24,
+            "error": false,
+            "rebuild": 0,
+            "time_avg": 0.027477741241455078,
+            "time_std": 0.0,
+            "isConverged": true
+        },
+        {
+            "steps": 22,
+            "error": false,
+            "rebuild": 0,
+            "time_avg": 0.02501511573791504,
+            "time_std": 0.0,
+            "isConverged": true
+        },
+        {
+            "steps": 22,
+            "error": false,
+            "rebuild": 0,
+            "time_avg": 0.025388717651367188,
+            "time_std": 0.0,
+            "isConverged": true
+        }
+    ]
+}

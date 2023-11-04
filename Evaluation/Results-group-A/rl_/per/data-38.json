@@ -1,0 +1,88 @@
+{
+    "smile": "CC1(O)C=CC2CC1O2",
+    "index": 38,
+    "N_atoms": 19,
+    "coord_type": "cart",
+    "results": [
+        {
+            "steps": 83,
+            "error": false,
+            "rebuild": 0,
+            "time_avg": 22.1774685382843,
+            "time_std": 0.0,
+            "isConverged": true
+        },
+        {
+            "steps": 126,
+            "error": false,
+            "rebuild": 0,
+            "time_avg": 30.051143169403076,
+            "time_std": 0.0,
+            "isConverged": true
+        },
+        {
+            "steps": 93,
+            "error": false,
+            "rebuild": 0,
+            "time_avg": 12.846841096878052,
+            "time_std": 0.0,
+            "isConverged": true
+        },
+        {
+            "steps": 73,
+            "error": false,
+            "rebuild": 0,
+            "time_avg": 7.522257566452026,
+            "time_std": 0.0,
+            "isConverged": true
+        },
+        {
+            "steps": 51,
+            "error": false,
+            "rebuild": 0,
+            "time_avg": 5.069809913635254,
+            "time_std": 0.0,
+            "isConverged": true
+        },
+        {
+            "steps": 57,
+            "error": false,
+            "rebuild": 0,
+            "time_avg": 7.187858581542969,
+            "time_std": 0.0,
+            "isConverged": true
+        },
+        {
+            "steps": 61,
+            "error": false,
+            "rebuild": 0,
+            "time_avg": 12.412559747695923,
+            "time_std": 0.0,
+            "isConverged": true
+        },
+        {
+            "steps": 168,
+            "error": false,
+            "rebuild": 0,
+            "time_avg": 37.50982618331909,
+            "time_std": 0.0,
+            "isConverged": true
+        },
+        {
+            "steps": 62,
+            "error": false,
+            "rebuild": 0,
+            "time_avg": 15.759020805358887,
+            "time_std": 0.0,
+            "isConverged": true
+        },
+        {
+            "steps": 109,
+            "error": false,
+            "rebuild": 0,
+            "time_avg": 21.64103937149048,
+            "time_std": 0.0,
+            "isConverged": true
+        }
+    ]
+}
