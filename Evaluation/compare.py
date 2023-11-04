@@ -2,9 +2,9 @@ import copy
 from pathlib import Path
 from typing import List
 from lib.check import Check, CheckDiverge, CheckError
-from lib.optimization_result_handling_original import \
+from lib.optimization_result_handling import \
     PurtabationType, OptimizationResultLoader,\
-    display_result_by_table, process_data
+    display_result_by_table, AvgStepDataProcessor
 
 ROOT_FOLDER = Path(".").resolve()
 
@@ -46,7 +46,8 @@ for result_name in result_names:
         )
         datas = result_loader.load_all_result_sets()
         try:
-            results = process_data(optimizer_names, current_check_list, datas)
+            processor = AvgStepDataProcessor(optimizer_names, current_check_list)
+            results = processor.process_data(datas)
         except Exception as e:
             print("all failed", e)
 
