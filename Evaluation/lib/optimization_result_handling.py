@@ -1,17 +1,68 @@
 import abc
+import json
 import pickle
 import numpy as np
-from typing import List
+import prettytable as pt
+from typing import List, Optional
+from pathlib import Path
 from lib.check import Check, CheckDiverge, CheckError
-from Evaluation.lib.optimization_result_handling_original import \
-    PurtabationType, OptResult, OptimizationResultLoader
-from dataclasses import dataclass
+from lib.tools import OptResult
+from lib.types import OptimizerResult, PurtabationType
 
-@dataclass
-class OptimizerResult:
-    name: str
-    average_steps: float
-    average_time: float  # unit (s)
+def display_result_by_table(results: List[OptimizerResult]):
+    tb = pt.PrettyTable()
+    tb.field_names = ["name", "Avg Step", "Avg Time"]
+    tb.align["Avg Step"] = "r"
+    tb.align["Avg Time"] = "r"
+    for result in results:
+        tb.add_row([
+            result.name,
+            round(result.average_steps, 2),
+            round(result.average_time, 3)
+        ])
+    print(tb)
+
+class OptimizationResultLoader:
+    def __init__(self,
+                 root_folder: str,
+                 test_file_name: str,
+                 result_name: str,
+                 perturbation: PurtabationType,
+                 all_names: List[str]
+                 ):
+
+        self.root_folder = root_folder
+        self.test_file_name = test_file_name
+        self.result_name = result_name
+        self.perturbation = perturbation
+        self.all_names = all_names
+
+    def load_from_json(self, opt_key: str, index: int) -> Optional[OptResult]:
+        file_path = Path(
+            self.root_folder,
+            f"{self.result_name}/{opt_key}/{self.perturbation.value}/data-{index}.json"
+        )
+        if file_path.exists():
+            with open(file_path, "r")as fs:
+                data = json.load(fs)
+            return OptResult.toObject(data)
+        return None
+
+    def get_data_length(self) -> int:
+        with open(Path("data", "test", f"{self.perturbation.value}-{self.test_file_name}"), 'rb') as fs:
+            return len(pickle.load(fs))
+
+    def load_single_result_set(self, index: int) -> Optional[List[OptResult]]:
+        datas: List[OptResult] = []
+        for opt_key in self.all_names:
+            data = self.load_from_json(opt_key, index)
+            if data is None:
+                return None
+            datas.append(data)
+        return datas
+
+    def load_all_result_sets(self) -> List[List[Optional[OptResult]]]:
+        return [self.load_single_result_set(i) for i in range(self.get_data_length())]
 
 class DataProcessor(abc.ABC):
 

@@ -1,22 +1,8 @@
 from typing import Callable, NamedTuple, List
+from lib.types import Opt_Result, Results
 import time
 from dataclasses import dataclass
 
-@dataclass
-class Results:
-    time: float
-    steps: int
-    isConverged: bool
-    error: bool
-
-Opt_Result = NamedTuple("Opt_Result", [
-    ("steps", int), 
-    ("error", bool), 
-    ("rebuild", int),
-    ("time_avg", float),
-    ("time_std", float),
-    ("isConverged", bool),
-])
 class OptResult:
     def __init__(self, smile: str, index: int, N_atoms: int, coord_type: str, results: List[Opt_Result]) -> None:
         self.smile = smile
