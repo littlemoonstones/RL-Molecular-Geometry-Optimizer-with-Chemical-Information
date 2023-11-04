@@ -1,3 +1,9 @@
+import os
+THREADS = 1
+os.environ["MKL_NUM_THREADS"] = str(THREADS)
+os.environ["NUMEXPR_NUM_THREADS"] = str(THREADS)
+os.environ["OMP_NUM_THREADS"] = str(THREADS)
+
 from typing import List, Optional
 import yaml
 from lib.tools import (
@@ -17,14 +23,9 @@ from pysisyphus.constants import ANG2BOHR
 
 from dataclasses import dataclass
 import json
-import os
 from pathlib import Path
 import pickle
 import tempfile
-THREADS = 1
-os.environ["MKL_NUM_THREADS"] = str(THREADS)
-os.environ["NUMEXPR_NUM_THREADS"] = str(THREADS)
-os.environ["OMP_NUM_THREADS"] = str(THREADS)
 
 
 @dataclass
@@ -75,7 +76,7 @@ def run(
     tmp_dir_root.mkdir(exist_ok=True)
     for coords in coords_group:
         time_list = []
-        for i in range(1):
+        for i in range(args.repeat_num):
             tmp_dir = tempfile.TemporaryDirectory(
                 prefix=f"{opt_key}-",
                 dir=tmp_dir_root
@@ -101,10 +102,10 @@ def run(
                 calc_kwargs['smile'] = smile
                 calc_kwargs['seed'] = _seed
 
+            calc_kwargs['out_dir'] = tmp_dir.name
             calculator = get_calc_closure(
                 'calculator', calc_key, calc_kwargs)()
 
-            calc_kwargs['out_dir'] = tmp_dir.name
             geometry.set_calculator(calculator)
 
             if opt_key == 'rl':
