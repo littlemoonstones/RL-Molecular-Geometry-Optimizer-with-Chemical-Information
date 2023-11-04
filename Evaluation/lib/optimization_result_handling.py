@@ -9,16 +9,19 @@ from lib.check import Check, CheckDiverge, CheckError
 from lib.tools import OptResult
 from lib.types import OptimizerResult, PurtabationType
 
-def display_result_by_table(results: List[OptimizerResult]):
+def display_result_by_table(
+        results: List[OptimizerResult],
+        field_names: List[str] = ["name", "Avg Step", "Avg Time"]
+    ):
     tb = pt.PrettyTable()
-    tb.field_names = ["name", "Avg Step", "Avg Time"]
+    tb.field_names = field_names
     tb.align["Avg Step"] = "r"
-    tb.align["Avg Time"] = "r"
+    tb.align["Total Time"] = "r"
     for result in results:
         tb.add_row([
             result.name,
-            round(result.average_steps, 2),
-            round(result.average_time, 3)
+            round(result.steps, 2),
+            round(result.time, 3)
         ])
     print(tb)
 
@@ -158,8 +161,39 @@ class AvgStepDataProcessor(DataProcessor):
             avg_list.append(
                 OptimizerResult(
                     name=name,
-                    average_steps=np.average(clip_result),
-                    average_time=np.average(self.time_results[index]),
+                    steps=np.average(clip_result),
+                    time=np.average(self.time_results[index]),
+                )
+            )
+        print(
+            f"Completion: {len(result)}/{self.total} -> {round(len(result)/self.total*100, 2)}%"
+        )
+
+        return avg_list
+
+class TotalStepDataProcessor(DataProcessor):
+    def collect_results(self, smile_index: int, datas: List[OptResult], j: int):
+        for index, tmp_data in enumerate(datas):
+            try:
+                self.results[index].append(tmp_data.results[j].steps)
+                self.time_results[index].append(
+                    tmp_data.results[j].time_avg
+                )
+            except:
+                print(index)
+                raise Exception
+
+    def prepare_output(self):
+        result: List[int]
+        avg_list: List[OptimizerResult] = []
+        for index, result in enumerate(self.results):
+            clip_result = np.clip(result, 0, 300)
+            name = self.all_files[index]
+            avg_list.append(
+                OptimizerResult(
+                    name=name,
+                    steps=np.sum(clip_result),
+                    time=np.sum(self.time_results[index]),
                 )
             )
         print(
