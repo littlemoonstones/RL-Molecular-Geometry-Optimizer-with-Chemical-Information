@@ -23,6 +23,7 @@ def WorkerArgsBuilder():
     parser.add_argument("--file", choices=FILES,
                         help='data file to evaluate on')
     parser.add_argument("--index", default=None, type=int, help="index of data")
+    parser.add_argument("--repeat_num", default=1, type=int, help="index of data")
    
     args = parser.parse_args()
     return args
