@@ -1,0 +1,37 @@
+redund
+calculator Psi4
+calculator {'method': 'b3lyp', 'basis': 'def2-svp', 'out_dir': 'qm_calcs/group-paperFinetune01-rls-lyxw0bmu'}
+Warning: RL Optimizer is only suitable for gau_loose.
+BasicEncode
+load model: saves/RL-paperFinetune01/v1/seed-708700354/best_model.pt
+total agents: 1
+If not specified otherwise, all quantities are given in au.
+
+Convergence thresholds:
+	max(|force|) <= 0.000450 E_h a_0⁻¹
+	  rms(force) <= 0.000300 E_h a_0⁻¹
+	 max(|step|) <= 0.001800 a_0
+	   rms(step) <= 0.001200 a_0
+	'Superscript *' indicates convergence
+
+Spent 0.0 s preparing the first cycle.
+       cycle    Δ(energy) max(|force|)   rms(force)  max(|step|)    rms(step)      s/cycle
+          0          nan*    0.051904     0.014886     0.309827     0.089954         0.06 
+          1    -0.016785*    0.033511     0.007798     0.037843     0.013600       122.65 
+          2    -0.002878*    0.019224     0.003779     0.031528     0.010335       126.38 
+          3    -0.000597*    0.004610     0.001584     0.036857     0.013207       126.87 
+          4    -0.000157*    0.002728     0.000781     0.029472     0.012323       127.99 
+          5    -0.000068*    0.000662     0.000208*    0.040750     0.015511       130.57 
+          6    -0.000031*    0.000372*    0.000107*    0.036168     0.013867       126.20 
+          7    -0.000019*    0.000237*    0.000079*    0.032140     0.012393       122.26 
+          8    -0.000010*    0.000146*    0.000058*    0.016947     0.006475       123.68 
+          9    -0.000003*    0.000159*    0.000049*    0.003643     0.001347       120.66 
+       -----------------------------------------------------------------------------------
+         10    -0.000001*    0.000077*    0.000030*    0.001237*    0.000407*      118.38 
+       Converged!
+
+Final summary:
+        	max(forces,cartesian): 0.000077 hartree/bohr
+        	rms(forces,cartesian): 0.000030 hartree/bohr
+        	energy: -573.60999946 hartree
+       Wrote final, hopefully optimized, geometry to 'final_geometry.xyz'

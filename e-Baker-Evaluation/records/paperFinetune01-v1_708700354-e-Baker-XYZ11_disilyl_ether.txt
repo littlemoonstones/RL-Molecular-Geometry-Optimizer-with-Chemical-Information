@@ -1,0 +1,39 @@
+redund
+calculator Psi4
+calculator {'method': 'b3lyp', 'basis': 'def2-svp', 'out_dir': 'qm_calcs/group-paperFinetune01-rls-ogb4vx9b'}
+Warning: RL Optimizer is only suitable for gau_loose.
+BasicEncode
+load model: saves/RL-paperFinetune01/v1/seed-708700354/best_model.pt
+total agents: 1
+If not specified otherwise, all quantities are given in au.
+
+Convergence thresholds:
+	max(|force|) <= 0.000450 E_h a_0⁻¹
+	  rms(force) <= 0.000300 E_h a_0⁻¹
+	 max(|step|) <= 0.001800 a_0
+	   rms(step) <= 0.001200 a_0
+	'Superscript *' indicates convergence
+
+Spent 0.0 s preparing the first cycle.
+       cycle    Δ(energy) max(|force|)   rms(force)  max(|step|)    rms(step)      s/cycle
+          0          nan*    0.047962     0.026967     0.065175     0.029617         0.01 
+          1    -0.012723*    0.034296     0.019374     0.047864     0.021350        11.85 
+          2    -0.007906*    0.023182     0.013212     0.088837     0.045801        11.73 
+          3    -0.007711*    0.004257     0.001957     0.015750     0.007398        11.67 
+          4    -0.000156*    0.001349     0.000490     0.005572     0.002046        11.77 
+          5    -0.000007*    0.000593     0.000183*    0.007621     0.002718        11.72 
+          6    -0.000003*    0.000462     0.000126*    0.006765     0.002608        13.83 
+          7    -0.000003*    0.000439*    0.000113*    0.004934     0.001835        12.03 
+          8    -0.000002*    0.000414*    0.000103*    0.003500     0.001274        11.78 
+          9    -0.000001*    0.000388*    0.000095*    0.002723     0.000981*       11.76 
+       -----------------------------------------------------------------------------------
+         10    -0.000001*    0.000367*    0.000088*    0.002178     0.000780*       11.81 
+         11    -0.000001*    0.000349*    0.000083*    0.001844     0.000656*       12.01 
+         12    -0.000001*    0.000334*    0.000079*    0.001646*    0.000587*       11.91 
+       Converged!
+
+Final summary:
+        	max(forces,cartesian): 0.000334 hartree/bohr
+        	rms(forces,cartesian): 0.000079 hartree/bohr
+        	energy: -657.67839334 hartree
+       Wrote final, hopefully optimized, geometry to 'final_geometry.xyz'

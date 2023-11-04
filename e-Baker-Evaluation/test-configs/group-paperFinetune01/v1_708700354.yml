@@ -1,0 +1,10 @@
+calculator:
+  key: xtb
+coord_type: redund
+file_name: test_dict.pk
+optimizer:
+  key: rls
+  name: paperFinetune01
+  seeds:
+  - 708700354
+  version: '1'

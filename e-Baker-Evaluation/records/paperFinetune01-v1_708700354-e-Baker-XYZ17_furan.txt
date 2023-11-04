@@ -1,0 +1,32 @@
+redund
+calculator Psi4
+calculator {'method': 'b3lyp', 'basis': 'def2-svp', 'out_dir': 'qm_calcs/group-paperFinetune01-rls-rxkhvjia'}
+Warning: RL Optimizer is only suitable for gau_loose.
+BasicEncode
+load model: saves/RL-paperFinetune01/v1/seed-708700354/best_model.pt
+total agents: 1
+If not specified otherwise, all quantities are given in au.
+
+Convergence thresholds:
+	max(|force|) <= 0.000450 E_h a_0⁻¹
+	  rms(force) <= 0.000300 E_h a_0⁻¹
+	 max(|step|) <= 0.001800 a_0
+	   rms(step) <= 0.001200 a_0
+	'Superscript *' indicates convergence
+
+Spent 0.0 s preparing the first cycle.
+       cycle    Δ(energy) max(|force|)   rms(force)  max(|step|)    rms(step)      s/cycle
+          0          nan*    0.037098     0.014829     0.118016     0.045888         0.02 
+          1    -0.005567*    0.018541     0.006872     0.047140     0.021362        14.34 
+          2    -0.001102*    0.007768     0.003485     0.021118     0.007330        15.17 
+          3    -0.000181*    0.003738     0.001541     0.004918     0.002404        14.16 
+          4    -0.000040*    0.001791     0.000634     0.002551     0.001324        14.22 
+          5    -0.000010*    0.000467     0.000250*    0.001427*    0.000623*       14.20 
+          6    -0.000002*    0.000231*    0.000106*    0.000674*    0.000309*       14.18 
+       Converged!
+
+Final summary:
+        	max(forces,cartesian): 0.000231 hartree/bohr
+        	rms(forces,cartesian): 0.000106 hartree/bohr
+        	energy: -229.85614508 hartree
+       Wrote final, hopefully optimized, geometry to 'final_geometry.xyz'

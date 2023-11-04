@@ -1,0 +1,35 @@
+redund
+calculator Psi4
+calculator {'method': 'b3lyp', 'basis': 'def2-svp', 'out_dir': 'qm_calcs/group-paperFinetune01-rls-ngem6ov2'}
+Warning: RL Optimizer is only suitable for gau_loose.
+BasicEncode
+load model: saves/RL-paperFinetune01/v1/seed-708700354/best_model.pt
+total agents: 1
+If not specified otherwise, all quantities are given in au.
+
+Convergence thresholds:
+	max(|force|) <= 0.000450 E_h a_0⁻¹
+	  rms(force) <= 0.000300 E_h a_0⁻¹
+	 max(|step|) <= 0.001800 a_0
+	   rms(step) <= 0.001200 a_0
+	'Superscript *' indicates convergence
+
+Spent 0.0 s preparing the first cycle.
+       cycle    Δ(energy) max(|force|)   rms(force)  max(|step|)    rms(step)      s/cycle
+          0          nan*    0.078764     0.020869     0.419972     0.115640         0.07 
+          1    -0.036832*    0.044117     0.009772     0.095154     0.033231       127.09 
+          2    -0.005093*    0.032900     0.007652     0.082360     0.028316       129.98 
+          3    -0.001954*    0.009661     0.002880     0.067377     0.021315       131.98 
+          4    -0.000697*    0.006283     0.001535     0.011260     0.004706       132.04 
+          5    -0.000110*    0.002582     0.000660     0.007480     0.002593       131.88 
+          6    -0.000023*    0.001230     0.000277*    0.003316     0.000749*      130.08 
+          7    -0.000004*    0.000570     0.000135*    0.000907*    0.000309*      126.20 
+          8    -0.000001*    0.000257*    0.000062*    0.000470*    0.000184*      127.38 
+       Converged!
+
+Final summary:
+        	max(forces,cartesian): 0.000257 hartree/bohr
+        	rms(forces,cartesian): 0.000062 hartree/bohr
+        	energy: -679.88513009 hartree
+       Wrote final, hopefully optimized, geometry to 'final_geometry.xyz'
+rm: cannot remove ‘tmp/tmp-group-paperFinetune01-v1_708700354-e-Baker-XYZ29_caffeine.txt’: No such file or directory
