@@ -61,7 +61,7 @@ python run.py \
     --seed SEED
 ```
 
-### For example
+#### For example
 We select the configuration file at `many510/v3.ini` and set the name as `many510` and the version as `3`. The seed is set as `283484033`. The command is as follows:
 ```bash
 cd Train
@@ -73,6 +73,15 @@ python run.py \
 
 > After training, the model will be stored in `Train/saves/NAME/VERSION/`. You need to copy or move the model to the `Evaluation` folder if you want to evaluate the model.
 
+### Fine-tune 
+```bash
+cd Train
+python runWithPretrain.py \
+    --name many510 \
+    --version 3 \
+    -r 708700354 \
+    --pre_trained saves/RL-many510/v3/seed-283484033/best_model.pt \
+```
 
 ## Evaluation
 Before we compare the performance of different optimizers, we need to collect the data(`.json`) which the optimizer optimize the molecular geometry. The data will be stored in `Result-GROUP_NAME/OPTIMIZER_NAME/`. 
