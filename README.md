@@ -112,3 +112,9 @@ After collecting the data, we can compare the performance of different optimizer
 ```bash
 python compare.py
 ```
+
+## Evaluation with e-Baker dataset
+```bash
+cd e-Baker-Evaluation
+python main.py
+```
